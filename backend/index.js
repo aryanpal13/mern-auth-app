@@ -10,11 +10,13 @@ const app = express();
 const port = process.env.PORT || 8080;
 connectDB();
 
-const allowedOrigins = ['https://mern-auth-app-teal.vercel.app/']
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({origin: allowedOrigins, credentials: true}));
+app.use(cors({
+  origin: 'https://mern-auth-app-teal.vercel.app',
+  credentials: true,
+}));
 
 // API Endpoints
 app.get('/', (req, res) => {
